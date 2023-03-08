@@ -21,10 +21,10 @@ class AudioDeviceListener : public IMMNotificationClient
 public:
   AudioDeviceListener(std::unique_ptr<flutter::MethodChannel<flutter::EncodableValue>> channel);
   virtual ~AudioDeviceListener();
-  //¿ªÊ¼×¢²á¼àÌı
-  HRESULT onRegister();
-  //×¢ÏúÉè±¸¼àÌı
-  HRESULT onUnregister();
+  //å¼€å§‹æ³¨å†Œç›‘å¬
+  bool onRegister();
+  //æ³¨é”€è®¾å¤‡ç›‘å¬
+  bool onUnregister();
 
   ULONG STDMETHODCALLTYPE AddRef();
   ULONG STDMETHODCALLTYPE Release();
