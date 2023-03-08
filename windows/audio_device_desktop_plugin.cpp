@@ -58,8 +58,13 @@ void AudioDeviceDesktopPlugin::HandleMethodCall(
     else if (IsWindows7OrGreater()) {
       version_stream << "7";
     }
-    audioDeviceListener_->onRegister();
     result->Success(flutter::EncodableValue(version_stream.str()));
+  }
+  else if (method_call.method_name().compare("audioDeviceListenStart") == 0) {
+    result->Success(audioDeviceListener_->onRegister());
+  }
+  else if (method_call.method_name().compare("audioDeviceListenEnd") == 0) {
+    result->Success(audioDeviceListener_->onUnregister());
   }
   //else if (method_call.method_name().compare("startShowBorder") == 0) {
   //  HWND hWnd = (HWND)0x001701FC;
