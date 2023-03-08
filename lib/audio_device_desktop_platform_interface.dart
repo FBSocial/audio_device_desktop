@@ -26,4 +26,11 @@ abstract class AudioDeviceDesktopPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<bool?> audioDeviceListenStart() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+  Future<bool?> audioDeviceListenEnd() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
 }

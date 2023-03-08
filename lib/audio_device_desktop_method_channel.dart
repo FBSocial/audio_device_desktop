@@ -14,4 +14,14 @@ class MethodChannelAudioDeviceDesktop extends AudioDeviceDesktopPlatform {
     final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
   }
+
+  @override
+  Future<bool?> audioDeviceListenStart() async {
+    return methodChannel.invokeMethod<bool>('audioDeviceListenStart');
+  }
+  
+  @override
+  Future<bool?> audioDeviceListenEnd() async {
+    return methodChannel.invokeMethod<bool>('audioDeviceListenEnd');
+  }
 }

@@ -18,6 +18,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
   final _audioDeviceDesktopPlugin = AudioDeviceDesktop();
+  bool? hasListen = false;
 
   @override
   void initState() {
@@ -57,6 +58,14 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Text('Running on: $_platformVersion\n'),
         ),
+        floatingActionButton: FloatingActionButton(onPressed: () async {
+          if(!hasListen!){
+            hasListen = await _audioDeviceDesktopPlugin.audioDeviceListenStart();
+          }else{
+            bool? res = await _audioDeviceDesktopPlugin.audioDeviceListenEnd();
+            hasListen = (res == false);
+          }
+        },),
       ),
     );
   }
