@@ -77,12 +77,12 @@ AudioDeviceListener::~AudioDeviceListener(){SAFE_RELEASE(_pEnumerator)}
 
 bool AudioDeviceListener::onRegister() {
   HRESULT hr = S_OK;
-  // ��ʼ��COM
+  // 初始化COM
   hr = ::CoInitialize(NULL);
   if (FAILED(hr)) {
     cout << "CoInitialize Error" << endl;
   }
-  // �����ӿ�
+  // 创建接口
   hr = CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_ALL,
                         __uuidof(IMMDeviceEnumerator), (void**)&_pEnumerator);
 
@@ -92,7 +92,7 @@ bool AudioDeviceListener::onRegister() {
     cout << "AudioDeviceListener onRegister Create Instance Failed" << endl;
   }
 
-  // ע���¼�
+  // 注册事件
   hr = _pEnumerator->RegisterEndpointNotificationCallback(
       (IMMNotificationClient*)this);
   if (hr == S_OK) {

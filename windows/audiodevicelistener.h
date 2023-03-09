@@ -1,5 +1,5 @@
-#ifndef _CMMNOTIFICATIONCLIENT_H_
-#define _CMMNOTIFICATIONCLIENT_H_
+﻿#ifndef _AUDIODEVICELISTENER_H_
+#define _AUDIODEVICELISTENER_H_
 
 #include <mmdeviceapi.h>
 #include <iostream>
@@ -64,4 +64,4 @@ public:
   std::map<std::string, DeviceStateInfo> _currentStateMap;
 };
 }  // namespace audio_device_desktop
-#endif  //_DEVICELISTENER_H_
+#endif  //_AUDIODEVICELISTENER_H_
