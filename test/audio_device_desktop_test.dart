@@ -7,13 +7,13 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockAudioDeviceDesktopPlatform
     with MockPlatformInterfaceMixin
     implements AudioDeviceDesktopPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 }
 
 void main() {
-  final AudioDeviceDesktopPlatform initialPlatform = AudioDeviceDesktopPlatform.instance;
+  final AudioDeviceDesktopPlatform initialPlatform =
+      AudioDeviceDesktopPlatform.instance;
 
   test('$MethodChannelAudioDeviceDesktop is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelAudioDeviceDesktop>());
@@ -21,7 +21,8 @@ void main() {
 
   test('getPlatformVersion', () async {
     AudioDeviceDesktop audioDeviceDesktopPlugin = AudioDeviceDesktop();
-    MockAudioDeviceDesktopPlatform fakePlatform = MockAudioDeviceDesktopPlatform();
+    MockAudioDeviceDesktopPlatform fakePlatform =
+        MockAudioDeviceDesktopPlatform();
     AudioDeviceDesktopPlatform.instance = fakePlatform;
 
     expect(await audioDeviceDesktopPlugin.getPlatformVersion(), '42');

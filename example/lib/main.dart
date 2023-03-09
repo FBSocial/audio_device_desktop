@@ -32,8 +32,8 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion =
-          await _audioDeviceDesktopPlugin.getPlatformVersion() ?? 'Unknown platform version';
+      platformVersion = await _audioDeviceDesktopPlugin.getPlatformVersion() ??
+          'Unknown platform version';
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -58,14 +58,18 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: Text('Running on: $_platformVersion\n'),
         ),
-        floatingActionButton: FloatingActionButton(onPressed: () async {
-          if(!hasListen!){
-            hasListen = await _audioDeviceDesktopPlugin.audioDeviceListenStart();
-          }else{
-            bool? res = await _audioDeviceDesktopPlugin.audioDeviceListenEnd();
-            hasListen = (res == false);
-          }
-        },),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            if (!hasListen!) {
+              hasListen =
+                  await _audioDeviceDesktopPlugin.audioDeviceListenStart();
+            } else {
+              bool? res =
+                  await _audioDeviceDesktopPlugin.audioDeviceListenEnd();
+              hasListen = (res == false);
+            }
+          },
+        ),
       ),
     );
   }
