@@ -6,10 +6,12 @@ class AudioDeviceDesktop {
   }
 
   Future<bool?> audioDeviceListenStart() {
+    print('---- start listen audio device ----');
     return AudioDeviceDesktopPlatform.instance.audioDeviceListenStart();
   }
 
   Future<bool?> audioDeviceListenEnd() {
+    print('---- end listen audio device ----');
     return AudioDeviceDesktopPlatform.instance.audioDeviceListenEnd();
   }
 
